@@ -7,13 +7,17 @@ colorscheme vividchalk
 syntax on
 set mouse=a
 set nocompatible
+
 set autoindent
 set smartindent
-set tabstop=2
-set shiftwidth=2
+
+set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+
 set showmatch
+
 set ruler
 set number
+
 map nn :NERDTreeToggle<CR>
 map n :NERDTree<CR>
 
