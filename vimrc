@@ -13,6 +13,7 @@ set tabstop=2
 set shiftwidth=2
 set showmatch
 set ruler
+set number
 map tt :NERDTreeToggle<CR>
 map n :NERDTree<CR>
 
