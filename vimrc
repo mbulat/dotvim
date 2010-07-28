@@ -14,7 +14,7 @@ set shiftwidth=2
 set showmatch
 set ruler
 set number
-map tt :NERDTreeToggle<CR>
+map nn :NERDTreeToggle<CR>
 map n :NERDTree<CR>
 
 set laststatus=2
