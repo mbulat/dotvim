@@ -7,6 +7,7 @@ colorscheme vividchalk
 syntax on
 set mouse=a
 set nocompatible
+filetype plugin indent on
 
 set autoindent
 set smartindent
