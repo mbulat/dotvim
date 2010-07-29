@@ -30,6 +30,7 @@ set hidden                                          " Handle multiple buffers be
 
 set number                                          " Show line numbers.
 set ruler                                           " Show cursor position.
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 set incsearch                                       " Highlight matches as you type.
 set hlsearch                                        " Highlight matches.
