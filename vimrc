@@ -14,6 +14,11 @@ set completeopt=longest,menuone                     " Insert longest, and allway
 set autoindent
 set smartindent
 
+" Remap the indent keys in visual mode to keep selected text
+vmap > >gv
+vmap < <gv
+
+
 set showcmd                                         " Display incomplete commands.
 set showmode                                        " Display the mode you're in.
 set showmatch                                       " Highlight matching brackets, etc.
@@ -65,6 +70,9 @@ set wildignore+=vendor,log,tmp,*.swp
 " For the MakeGreen plugin and Ruby RSpec.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+" Set the command to open for Rpreview
+command -bar -nargs=1 OpenURL :!open <args>
+
 " Get rid of awkward Ex-mode
 map Q <Esc>
 
@@ -78,3 +86,5 @@ map <Leader>nn :NERDTreeToggle<CR>
 
 set laststatus=2
 set statusline=%<%f\ %h%m%r%w%y%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+let g:rubycomplete_rails = 1
