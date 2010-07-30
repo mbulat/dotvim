@@ -57,7 +57,7 @@ set noexpandtab
 
 set title                                           " Set the terminal's title
 
-set visualbell                                      " No beeping.
+" set visualbell                                      " No beeping.
 
 set nobackup                                        " Don't make a backup before overwriting a file.
 set nowritebackup                                   " And again.
@@ -80,7 +80,6 @@ map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 imap jj <Esc>
 
-map <Leader>m <Plug>MakeGreen
 map <Leader>n :NERDTree<CR>
 map <Leader>nn :NERDTreeToggle<CR>
 
