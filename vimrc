@@ -69,8 +69,7 @@ set wildignore+=vendor,log,tmp,*.swp
 " For the MakeGreen plugin and Ruby RSpec.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
-" Set the command to open for Rpreview
-command -bar -nargs=1 OpenURL :!open <args>
+set shell=/bin/bash
 
 " Get rid of awkward Ex-mode
 map Q <Esc>
@@ -89,5 +88,11 @@ map <Leader>nn :NERDTreeToggle<CR>
 
 set laststatus=2
 set statusline=%<%f\ %h%m%r%w%y%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+",v brings up my .vimrc
+",V reloads it -- making all changes active (have to save first)
+
+map ,v :sp ~/.vim/vimrc<CR><C-W>_
+map <silent> ,V :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 let g:rubycomplete_rails = 1
