@@ -18,7 +18,6 @@ set smartindent
 vmap > >gv
 vmap < <gv
 
-
 set showcmd                                         " Display incomplete commands.
 set showmode                                        " Display the mode you're in.
 set showmatch                                       " Highlight matching brackets, etc.
@@ -78,7 +77,12 @@ map Q <Esc>
 
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
+
+" Easy insert escape
 imap jj <Esc>
+
+" Easy insert escape and write file
+imap kk <Esc>:w<CR>
 
 map <Leader>n :NERDTree<CR>
 map <Leader>nn :NERDTreeToggle<CR>
