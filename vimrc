@@ -1,6 +1,7 @@
 " Mike's vimrc
 set nocompatible                                                 " Must come first because it changes other options.
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 set background=dark
 colorscheme vividchalk
@@ -77,7 +78,7 @@ map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 
 " Easy insert escape
-imap jj <Esc>
+imap jj <Esc> 
 
 " Easy insert escape and write file
 imap kk <Esc>:w<CR>
