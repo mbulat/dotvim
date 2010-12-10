@@ -5,6 +5,7 @@ call pathogen#helptags()
 
 set background=dark
 colorscheme vividchalk
+set guifont=Menlo:h18
 set mouse=a                                                      " Allow mouse to interact with shell
 
 syntax on                                                        " Turn on syntax highlighting
@@ -70,6 +71,7 @@ set wildignore+=vendor,log,tmp,*.swp
 
 " For the MakeGreen plugin and Ruby RSpec.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+map <Leader>t :make%<CR>
 
 " Get rid of awkward Ex-mode
 map Q <Esc>
@@ -94,4 +96,27 @@ set statusline=%<%f\ %h%m%r%w%y%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 map ,v :sp ~/.vim/vimrc<CR><C-W>_
 map <silent> ,V :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'" <CR>
 
+" maps for lust exporer
+map ,f <Leader>lf
+map ,r <Leader>lr
+map ,b <Leader>lb
+map ,g <Leader>lg
+
 let g:rubycomplete_rails = 1
+let g:LustyExplorerSuppressRubyWarning = 1
+
+function! Privatize()
+  let priorMethod = PriorMethodDefinition()
+  exec "normal iprivate :" . priorMethod  . "\<Esc>=="
+endfunction
+
+function! PriorMethodDefinition()
+  let lineNumber = search('def', 'bn')
+  let line       = getline(lineNumber)
+  if line == 0
+    echo "No prior method definition found"
+  endif
+  return matchlist(line, 'def \(\w\+\).*')[1]
+endfunction
+
+map <Leader>p :call Privatize()<CR>
