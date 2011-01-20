@@ -71,7 +71,7 @@ set wildignore+=vendor,log,tmp,*.swp
 
 " For the MakeGreen plugin and Ruby RSpec.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
-map <Leader>t :make%<CR>
+" map <Leader>t :make%<CR>
 
 " Get rid of awkward Ex-mode
 map Q <Esc>
