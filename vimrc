@@ -1,10 +1,12 @@
 " Mike's vimrc
+"
 set nocompatible                                                 " Must come first because it changes other options.
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+let g:solarized_termcolors=16
 set background=dark
-colorscheme vividchalk
+colorscheme solarized
 set guifont=Menlo:h18
 set mouse=a                                                      " Allow mouse to interact with shell
 
@@ -33,7 +35,7 @@ set hidden                                                       " Handle multip
 
 set number                                                       " Show line numbers.
 set ruler                                                        " Show cursor position.
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 set incsearch                                                    " Highlight matches as you type.
 set hlsearch                                                     " Highlight matches.
@@ -45,13 +47,11 @@ set formatoptions=tq
 set wrapmargin=4
 set textwidth=120
 
-set tabstop=2                                                    " Global tab width.
+set nowrap
+set tabstop=2
 set shiftwidth=2
-set smarttab
-set autoindent
-set smartindent
 set softtabstop=2
-set noexpandtab
+set expandtab
 
 " folding settings
 set foldmethod=indent                                            " fold based on indent
@@ -80,7 +80,7 @@ map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 
 " Easy insert escape
-imap jj <Esc> 
+imap jj <Esc>
 
 " Easy insert escape and write file
 imap kk <Esc>:w<CR>
@@ -120,3 +120,4 @@ function! PriorMethodDefinition()
 endfunction
 
 map <Leader>p :call Privatize()<CR>
+set t_Co=256
