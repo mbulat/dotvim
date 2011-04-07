@@ -14,6 +14,7 @@ syntax on                                                        " Turn on synta
 filetype plugin indent on                                        " Turn in filetype detection
 set ofu=syntaxcomplete#Complete                                  " Turn on Omnicomplettion
 set completeopt=longest,menuone                                  " Insert longest, and allways show popup on completion
+let g:SuperTabDefaultCompletionType = "context"
 
 " Remap the indent keys in visual mode to keep selected text
 vmap > >gv
