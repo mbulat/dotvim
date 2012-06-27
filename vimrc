@@ -4,17 +4,13 @@ set nocompatible                                                 " Must come fir
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-let g:solarized_termcolors=16
+"let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
-set guifont=Menlo:h18
-set mouse=a                                                      " Allow mouse to interact with shell
+set guifont=Consolas:h20
 
-syntax on                                                        " Turn on syntax highlighting
+syntax on
 filetype plugin indent on                                        " Turn in filetype detection
-set ofu=syntaxcomplete#Complete                                  " Turn on Omnicomplettion
-set completeopt=longest,menuone                                  " Insert longest, and allways show popup on completion
-let g:SuperTabDefaultCompletionType = "context"
 
 " Remap the indent keys in visual mode to keep selected text
 vmap > >gv
@@ -40,15 +36,17 @@ set ruler                                                        " Show cursor p
 
 set incsearch                                                    " Highlight matches as you type.
 set hlsearch                                                     " Highlight matches.
+set history=10000
 
-set wrap                                                         " Turn on line wrapping.
 set scrolloff=3                                                  " Show 3 lines of context around the cursor.
 set linebreak
 set formatoptions=tq
 set wrapmargin=4
 set textwidth=120
 
-set nowrap
+set nowrap                                                       " Turn on line wrapping.
+
+"tabs are evil.... we like spaces!!!
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -70,10 +68,6 @@ set shell=/bin/bash                                              " Some commands
 
 set wildignore+=vendor,log,tmp,*.swp
 
-" For the MakeGreen plugin and Ruby RSpec.
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
-" map <Leader>t :make%<CR>
-
 " Get rid of awkward Ex-mode
 map Q <Esc>
 
@@ -89,9 +83,6 @@ imap kk <Esc>:w<CR>
 map <Leader>n :NERDTree<CR>
 map <Leader>nn :NERDTreeToggle<CR>
 
-set laststatus=2
-set statusline=%<%f\ %h%m%r%w%y%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
 map ,v :sp ~/.vim/vimrc<CR><C-W>_
@@ -106,19 +97,4 @@ map ,g <Leader>lg
 let g:rubycomplete_rails = 1
 let g:LustyExplorerSuppressRubyWarning = 1
 
-function! Privatize()
-  let priorMethod = PriorMethodDefinition()
-  exec "normal iprivate :" . priorMethod  . "\<Esc>=="
-endfunction
-
-function! PriorMethodDefinition()
-  let lineNumber = search('def', 'bn')
-  let line       = getline(lineNumber)
-  if line == 0
-    echo "No prior method definition found"
-  endif
-  return matchlist(line, 'def \(\w\+\).*')[1]
-endfunction
-
-map <Leader>p :call Privatize()<CR>
 set t_Co=256
