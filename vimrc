@@ -4,6 +4,7 @@ set nocompatible                                                 " Must come fir
 set modelines=0
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+set encoding=utf-8
 
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -19,8 +20,8 @@ colorscheme solarized
 set guifont=Consolas\ for\ Powerline:h20
 
 "Copy and paste from X clipboard -
-com -range Cz :silent :<line1>,<line2>w !xsel -i -b
-ca cz Cz
+" com -range Cz :silent :<line1>,<line2>w !xsel -i -b
+" ca cz Cz
 
 syntax enable
 filetype plugin indent on                                        " Turn in filetype detection
@@ -65,7 +66,7 @@ set incsearch                                                    " Highlight mat
 set hlsearch                                                     " Highlight matches.
 set history=10000
 
-set scrolloff=3                                                  " Show 3 lines of context around the cursor.
+" set scrolloff=3                                                  " Show 3 lines of context around the cursor.
 set linebreak
 set formatoptions=tq
 set wrapmargin=4
@@ -128,7 +129,7 @@ let g:rubycomplete_rails = 1
 let g:LustyExplorerSuppressRubyWarning = 1
 
 " set t_Co=256
-nnoremap ,3 :NumbersToggle<CR>
+" nnoremap ,3 :NumbersToggle<CR>
 let g:Powerline_symbols = 'fancy'
 
 set ttymouse=xterm2
